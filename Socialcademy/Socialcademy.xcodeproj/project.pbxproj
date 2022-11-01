@@ -17,6 +17,9 @@
 		7AE36C7829117D2400F6F989 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7AE36C7729117D2400F6F989 /* FirebaseAnalytics */; };
 		7AE36C7A29117D2400F6F989 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7AE36C7929117D2400F6F989 /* FirebaseFirestore */; };
 		7AE36C7C29117D2400F6F989 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7AE36C7B29117D2400F6F989 /* FirebaseFirestoreSwift */; };
+		7AE36C7E2911806400F6F989 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AE36C7D2911806400F6F989 /* GoogleService-Info.plist */; };
+		7AE36C7F2911806400F6F989 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AE36C7D2911806400F6F989 /* GoogleService-Info.plist */; };
+		7AE36C802911806400F6F989 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AE36C7D2911806400F6F989 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,7 @@
 		7AE36C6329117BA300F6F989 /* SocialcademyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialcademyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE36C6729117BA300F6F989 /* SocialcademyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialcademyUITests.swift; sourceTree = "<group>"; };
 		7AE36C6929117BA300F6F989 /* SocialcademyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialcademyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7AE36C7D2911806400F6F989 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				7AE36C4C29117BA200F6F989 /* SocialcademyApp.swift */,
 				7AE36C4E29117BA200F6F989 /* ContentView.swift */,
 				7AE36C5029117BA300F6F989 /* Assets.xcassets */,
+				7AE36C7D2911806400F6F989 /* GoogleService-Info.plist */,
 				7AE36C5229117BA300F6F989 /* Preview Content */,
 			);
 			path = Socialcademy;
@@ -247,6 +252,7 @@
 			files = (
 				7AE36C5429117BA300F6F989 /* Preview Assets.xcassets in Resources */,
 				7AE36C5129117BA300F6F989 /* Assets.xcassets in Resources */,
+				7AE36C7E2911806400F6F989 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE36C7F2911806400F6F989 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE36C802911806400F6F989 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
