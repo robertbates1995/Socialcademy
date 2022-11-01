@@ -84,6 +84,7 @@
 		7ADF8E9029118505002BDAE7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				7AE36C5229117BA300F6F989 /* Preview Content */,
 				7AE36C5029117BA300F6F989 /* Assets.xcassets */,
 				7AE36C7D2911806400F6F989 /* GoogleService-Info.plist */,
 			);
@@ -124,7 +125,6 @@
 				7AE36C4C29117BA200F6F989 /* SocialcademyApp.swift */,
 				7ADF8E9129118553002BDAE7 /* Views */,
 				7ADF8E9029118505002BDAE7 /* Resource */,
-				7AE36C5229117BA300F6F989 /* Preview Content */,
 			);
 			path = Socialcademy;
 			sourceTree = "<group>";
@@ -454,7 +454,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Socialcademy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Socialcademy/Resource/Preview Content\"";
 				DEVELOPMENT_TEAM = 2DDP9BK6TP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -483,7 +483,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Socialcademy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Socialcademy/Resource/Preview Content\"";
 				DEVELOPMENT_TEAM = 2DDP9BK6TP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
