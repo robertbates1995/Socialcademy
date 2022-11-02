@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7ADF8E9429131986002BDAE7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF8E9329131986002BDAE7 /* Post.swift */; };
+		7ADF8E9629131AAB002BDAE7 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF8E9529131AAB002BDAE7 /* PostsList.swift */; };
 		7AE36C4D29117BA200F6F989 /* SocialcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE36C4C29117BA200F6F989 /* SocialcademyApp.swift */; };
 		7AE36C4F29117BA200F6F989 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE36C4E29117BA200F6F989 /* ContentView.swift */; };
 		7AE36C5129117BA300F6F989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE36C5029117BA300F6F989 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		7ADF8E9329131986002BDAE7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		7ADF8E9529131AAB002BDAE7 /* PostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsList.swift; sourceTree = "<group>"; };
 		7AE36C4929117BA200F6F989 /* Socialcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socialcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE36C4C29117BA200F6F989 /* SocialcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialcademyApp.swift; sourceTree = "<group>"; };
 		7AE36C4E29117BA200F6F989 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				7AE36C4E29117BA200F6F989 /* ContentView.swift */,
+				7ADF8E9529131AAB002BDAE7 /* PostsList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				7ADF8E9429131986002BDAE7 /* Post.swift in Sources */,
 				7AE36C4F29117BA200F6F989 /* ContentView.swift in Sources */,
 				7AE36C4D29117BA200F6F989 /* SocialcademyApp.swift in Sources */,
+				7ADF8E9629131AAB002BDAE7 /* PostsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
