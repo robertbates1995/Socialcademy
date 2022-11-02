@@ -15,7 +15,11 @@ struct PostsList: View {
     var body: some View {
         NavigationView {
             List(posts) { post in
-                PostRow(post: post)
+                if searchText.isEmpty {
+                    PostRow(post: post)
+                } else if post.contains(searchText) {
+                    HighlightedPostRow(post: post)
+                }
             }
             .searchable(text: $searchText)
             .navigationTitle("Posts")
