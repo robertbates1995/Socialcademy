@@ -22,7 +22,7 @@ struct PostRow: View {
                     .fontWeight(.light)
             }
             .foregroundColor(.gray)
-            Text("\(post.title)")
+            Text(post.title)
                 .font(.title3)
                 .fontWeight(.semibold)
             Text(post.content)
