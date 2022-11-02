@@ -11,10 +11,11 @@ struct PostsList: View {
     private var posts = [Post.testPost]
     
     var body: some View {
-        List(posts) { post in
-            Text("Title: \(post.title)")
-            Text("Author: \(post.authorName)")
-            Text("Content: \(post.content)")
+        NavigationView {
+            List(posts) { post in
+                PostRow(post: post)
+            }
+            .navigationTitle("Posts")
         }
     }
 }
