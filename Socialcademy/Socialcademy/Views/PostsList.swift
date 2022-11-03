@@ -18,7 +18,7 @@ struct PostsList: View {
                 if searchText.isEmpty {
                     PostRow(post: post)
                 } else if post.contains(searchText) {
-                    HighlightedPostRow(post: post)
+                    HighlightedPostRow(post: HighlightablePost(post: post, search: searchText))
                 }
             }
             .searchable(text: $searchText)
