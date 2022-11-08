@@ -11,6 +11,7 @@ struct PostsList: View {
     private var posts = [Post.testPost]
     
     @State private var searchText = ""
+    @State private var showNewPostForm = false
     
     var body: some View {
         NavigationView {
@@ -23,6 +24,16 @@ struct PostsList: View {
             }
             .searchable(text: $searchText)
             .navigationTitle("Posts")
+            .toolbar {
+                Button {
+                    showNewPostForm = true
+                } label: {
+                    Label("New Post", systemImage: "square.and.pencil")
+                }
+            }
+        }
+        .sheet(isPresented: $showNewPostForm) {
+            NewPostForm(createAction: { _ in })
         }
     }
 }
