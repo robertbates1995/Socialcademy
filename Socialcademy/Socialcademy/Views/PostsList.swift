@@ -32,7 +32,7 @@ struct PostsList: View {
             }
         }
         .sheet(isPresented: $showNewPostForm) {
-            NewPostForm(createAction: { _ in })
+            NewPostForm(createAction: viewModel.makeCreateAction())
         }
     }
 }
