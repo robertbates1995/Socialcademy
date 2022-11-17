@@ -13,6 +13,7 @@
 		7A51EE3B2919A4A70004B16A /* NewPostForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3A2919A4A70004B16A /* NewPostForm.swift */; };
 		7A51EE3D291C5F980004B16A /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3C291C5F980004B16A /* PostsViewModel.swift */; };
 		7A51EE40291DB3E00004B16A /* PostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3F291DB3E00004B16A /* PostsRepository.swift */; };
+		7A51EE5629240E360004B16A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7A51EE5529240E360004B16A /* FirebaseAuth */; };
 		7ADF8E9429131986002BDAE7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF8E9329131986002BDAE7 /* Post.swift */; };
 		7ADF8E9629131AAB002BDAE7 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF8E9529131AAB002BDAE7 /* PostsList.swift */; };
 		7AE36C4D29117BA200F6F989 /* SocialcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE36C4C29117BA200F6F989 /* SocialcademyApp.swift */; };
@@ -75,6 +76,7 @@
 				7AE36C7829117D2400F6F989 /* FirebaseAnalytics in Frameworks */,
 				7AE36C7A29117D2400F6F989 /* FirebaseFirestore in Frameworks */,
 				7AE36C7C29117D2400F6F989 /* FirebaseFirestoreSwift in Frameworks */,
+				7A51EE5629240E360004B16A /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,13 @@
 				7A51EE3F291DB3E00004B16A /* PostsRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		7A51EE5429240E360004B16A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7ADF8E9029118505002BDAE7 /* Resource */ = {
@@ -148,6 +157,7 @@
 				7AE36C5C29117BA300F6F989 /* SocialcademyTests */,
 				7AE36C6629117BA300F6F989 /* SocialcademyUITests */,
 				7AE36C4A29117BA200F6F989 /* Products */,
+				7A51EE5429240E360004B16A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,8 +174,8 @@
 		7AE36C4B29117BA200F6F989 /* Socialcademy */ = {
 			isa = PBXGroup;
 			children = (
-				7A51EE3E291DB3C20004B16A /* Repositories */,
 				7AE36C4C29117BA200F6F989 /* SocialcademyApp.swift */,
+				7A51EE3E291DB3C20004B16A /* Repositories */,
 				7A51EE37291333500004B16A /* ViewModels */,
 				7ADF8E922913195A002BDAE7 /* Models */,
 				7ADF8E9129118553002BDAE7 /* Views */,
@@ -219,6 +229,7 @@
 				7AE36C7729117D2400F6F989 /* FirebaseAnalytics */,
 				7AE36C7929117D2400F6F989 /* FirebaseFirestore */,
 				7AE36C7B29117D2400F6F989 /* FirebaseFirestoreSwift */,
+				7A51EE5529240E360004B16A /* FirebaseAuth */,
 			);
 			productName = Socialcademy;
 			productReference = 7AE36C4929117BA200F6F989 /* Socialcademy.app */;
@@ -686,6 +697,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7A51EE5529240E360004B16A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7AE36C7629117D2400F6F989 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		7AE36C7729117D2400F6F989 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7AE36C7629117D2400F6F989 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
