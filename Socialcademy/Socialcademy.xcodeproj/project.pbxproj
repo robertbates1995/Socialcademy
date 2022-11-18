@@ -14,6 +14,7 @@
 		7A51EE3D291C5F980004B16A /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3C291C5F980004B16A /* PostsViewModel.swift */; };
 		7A51EE40291DB3E00004B16A /* PostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3F291DB3E00004B16A /* PostsRepository.swift */; };
 		7A51EE5629240E360004B16A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7A51EE5529240E360004B16A /* FirebaseAuth */; };
+		7A51EE59292806BC0004B16A /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE58292806BC0004B16A /* Loadable.swift */; };
 		7ADF8E9429131986002BDAE7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF8E9329131986002BDAE7 /* Post.swift */; };
 		7ADF8E9629131AAB002BDAE7 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF8E9529131AAB002BDAE7 /* PostsList.swift */; };
 		7AE36C4D29117BA200F6F989 /* SocialcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE36C4C29117BA200F6F989 /* SocialcademyApp.swift */; };
@@ -54,6 +55,7 @@
 		7A51EE3A2919A4A70004B16A /* NewPostForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostForm.swift; sourceTree = "<group>"; };
 		7A51EE3C291C5F980004B16A /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		7A51EE3F291DB3E00004B16A /* PostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRepository.swift; sourceTree = "<group>"; };
+		7A51EE58292806BC0004B16A /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		7ADF8E9329131986002BDAE7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7ADF8E9529131AAB002BDAE7 /* PostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsList.swift; sourceTree = "<group>"; };
 		7AE36C4929117BA200F6F989 /* Socialcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socialcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7A51EE572928067D0004B16A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7A51EE58292806BC0004B16A /* Loadable.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		7ADF8E9029118505002BDAE7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				7AE36C4C29117BA200F6F989 /* SocialcademyApp.swift */,
+				7A51EE572928067D0004B16A /* Utilities */,
 				7A51EE3E291DB3C20004B16A /* Repositories */,
 				7A51EE37291333500004B16A /* ViewModels */,
 				7ADF8E922913195A002BDAE7 /* Models */,
@@ -360,6 +371,7 @@
 				7A51EE40291DB3E00004B16A /* PostsRepository.swift in Sources */,
 				7ADF8E9629131AAB002BDAE7 /* PostsList.swift in Sources */,
 				7A51EE3B2919A4A70004B16A /* NewPostForm.swift in Sources */,
+				7A51EE59292806BC0004B16A /* Loadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
