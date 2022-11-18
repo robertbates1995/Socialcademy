@@ -14,14 +14,43 @@ struct PostsList: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.posts) { post in
-                if searchText.isEmpty {
-                    PostRow(post: post)
-                } else if post.contains(searchText) {
-                    HighlightedPostRow(post: HighlightablePost(post: post, search: searchText))
+            Group {
+                switch viewModel.posts {
+                case .loading:
+                    ProgressView()
+                case let .error(error):
+                    VStack(alignment: .center, spacing: 10) {
+                        Text("Cannot Load Posts")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.primary)
+                        Text(error.localizedDescription)
+                        Button(action: {
+                            viewModel.fetchPosts()
+                        }) {
+                            Text("Try Again")
+                                .padding(10)
+                                .background(RoundedRectangle(cornerRadius: 5).stroke(Color.secondary))
+                        }
+                        .padding(.top)
+                    }
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.secondary)
+                    .padding()
+                case .empty:
+                    Text("No Posts")
+                case let .loaded(posts):
+                    List(posts) { post in
+                        if searchText.isEmpty {
+                            PostRow(post: post)
+                        } else if post.contains(searchText) {
+                            HighlightedPostRow(post: HighlightablePost(post: post, search: searchText))
+                        }
+                    }
+                    .searchable(text: $searchText)
                 }
             }
-            .searchable(text: $searchText)
             .navigationTitle("Posts")
             .toolbar {
                 Button {
@@ -30,15 +59,16 @@ struct PostsList: View {
                     Label("New Post", systemImage: "square.and.pencil")
                 }
             }
+            .sheet(isPresented: $showNewPostForm) {
+                NewPostForm(createAction: viewModel.makeCreateAction())
+            }
         }
         .onAppear {
             viewModel.fetchPosts()
         }
-        .sheet(isPresented: $showNewPostForm) {
-            NewPostForm(createAction: viewModel.makeCreateAction())
-        }
     }
 }
+
 
 struct PostsList_Previews: PreviewProvider {
     static var previews: some View {
