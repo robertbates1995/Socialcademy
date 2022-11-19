@@ -39,7 +39,17 @@ struct PostsList: View {
                     .foregroundColor(.secondary)
                     .padding()
                 case .empty:
-                    Text("No Posts")
+                    VStack(alignment: .center, spacing: 10) {
+                            Text("No Posts")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.primary)
+                            Text("There aren’t any posts yet.")
+                                .font(.subheadline)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding()
                 case let .loaded(posts):
                     List(posts) { post in
                         if searchText.isEmpty {
