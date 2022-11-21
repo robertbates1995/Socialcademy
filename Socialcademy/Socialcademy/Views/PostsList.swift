@@ -19,37 +19,11 @@ struct PostsList: View {
                 case .loading:
                     ProgressView()
                 case let .error(error):
-                    VStack(alignment: .center, spacing: 10) {
-                        Text("Cannot Load Posts")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.primary)
-                        Text(error.localizedDescription)
-                        Button(action: {
-                            viewModel.fetchPosts()
-                        }) {
-                            Text("Try Again")
-                                .padding(10)
-                                .background(RoundedRectangle(cornerRadius: 5).stroke(Color.secondary))
-                        }
-                        .padding(.top)
-                    }
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.secondary)
-                    .padding()
+                    EmptyListView(title: "Cannot Load Posts", message: error.localizedDescription, retryAction: {
+                        viewModel.fetchPosts()
+                    })
                 case .empty:
-                    VStack(alignment: .center, spacing: 10) {
-                            Text("No Posts")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.primary)
-                            Text("There aren’t any posts yet.")
-                                .font(.subheadline)
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(.secondary)
-                        }
-                        .padding()
+                    EmptyListView(title: "No Posts", message: "There aren't any posts yet.")
                 case let .loaded(posts):
                     List(posts) { post in
                         if searchText.isEmpty {
