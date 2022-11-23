@@ -9,8 +9,10 @@ import SwiftUI
 
 struct PostRow: View {
     typealias DeleteAction = () async throws -> Void
+    
     let post: Post
     let deleteAction: DeleteAction
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
