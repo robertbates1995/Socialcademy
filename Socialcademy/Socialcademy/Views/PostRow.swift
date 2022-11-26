@@ -41,6 +41,7 @@ struct PostRow: View {
                     Label("Delete", systemImage: "trash")
                 }
                 .labelStyle(.iconOnly)
+                .buttonStyle(.borderless)
             }
         }
         .padding(.vertical)
