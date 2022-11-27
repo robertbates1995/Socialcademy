@@ -13,6 +13,9 @@ struct HighlightedPostRow: View {
     let post: HighlightablePost
     let deleteAction: DeleteAction
     
+    @State private var showConfirmationDialog = false
+
+    
     private func deletePost() {
         Task {
             try! await deleteAction()
@@ -37,10 +40,13 @@ struct HighlightedPostRow: View {
             Text(post.content)
             HStack {
                 Spacer()
-                Button(role: .destructive, action: deletePost) {
+                Button(role: .destructive, action: {
+                    showConfirmationDialog = true
+                }) {
                     Label("Delete", systemImage: "trash")
                 }
                 .labelStyle(.iconOnly)
+                .buttonStyle(.borderless)
             }
         }
         .padding(.vertical)
