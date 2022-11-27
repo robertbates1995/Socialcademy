@@ -14,10 +14,16 @@ struct PostRow: View {
     let deleteAction: DeleteAction
     
     @State private var showConfirmationDialog = false
+    @State private var error: Error?
     
     private func deletePost() {
         Task {
-            try! await deleteAction()
+            do {
+                try await deleteAction()
+            } catch {
+                print("[PostRow] Cannot delete post: \(error)")
+                self.error = error
+            }
         }
     }
     
@@ -52,6 +58,7 @@ struct PostRow: View {
         .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
             Button("Delete", role: .destructive, action: deletePost)
         }
+        .alert("Cannot Delete Post", error: $error)
     }
 }
 
