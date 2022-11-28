@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A2E137F293579FD0048628D /* PostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2E137E293579FD0048628D /* PostRowViewModel.swift */; };
 		7A51EE3429131DF90004B16A /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3329131DF90004B16A /* PostRow.swift */; };
 		7A51EE3629132CB30004B16A /* HighlightedPostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3529132CB30004B16A /* HighlightedPostRow.swift */; };
 		7A51EE392913338A0004B16A /* HighlightablePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE382913338A0004B16A /* HighlightablePost.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A2E137E293579FD0048628D /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
 		7A51EE3329131DF90004B16A /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
 		7A51EE3529132CB30004B16A /* HighlightedPostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedPostRow.swift; sourceTree = "<group>"; };
 		7A51EE382913338A0004B16A /* HighlightablePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightablePost.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				7A51EE382913338A0004B16A /* HighlightablePost.swift */,
 				7A51EE3C291C5F980004B16A /* PostsViewModel.swift */,
+				7A2E137E293579FD0048628D /* PostRowViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				7AC7BF39292C0D030015E43D /* EmptyListView.swift in Sources */,
 				7A51EE3629132CB30004B16A /* HighlightedPostRow.swift in Sources */,
 				7A51EE40291DB3E00004B16A /* PostsRepository.swift in Sources */,
+				7A2E137F293579FD0048628D /* PostRowViewModel.swift in Sources */,
 				7ADF8E9629131AAB002BDAE7 /* PostsList.swift in Sources */,
 				7A51EE3B2919A4A70004B16A /* NewPostForm.swift in Sources */,
 				7A51EE59292806BC0004B16A /* Loadable.swift in Sources */,

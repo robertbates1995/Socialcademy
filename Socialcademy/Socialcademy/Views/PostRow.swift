@@ -56,15 +56,16 @@ struct PostRow: View {
                 .fontWeight(.semibold)
             Text(post.content)
             HStack {
+                FavoriteButton(isFavorite: post.isFavorite, action: favoritePost)
                 Spacer()
                 Button(role: .destructive, action: {
                     showConfirmationDialog = true
                 }) {
                     Label("Delete", systemImage: "trash")
                 }
-                .labelStyle(.iconOnly)
-                .buttonStyle(.borderless)
             }
+            .labelStyle(.iconOnly)
+            .buttonStyle(.borderless)
         }
         .padding(.vertical)
         .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
@@ -75,7 +76,7 @@ struct PostRow: View {
 }
 
 private extension PostRow {
-    struct FavoriteButton {
+    struct FavoriteButton: View {
         let isFavorite: Bool
         let action: () -> Void
         
