@@ -28,6 +28,17 @@ struct PostRow: View {
         }
     }
     
+    private func favoritePost() {
+        Task {
+            do {
+                try await favoriteAction()
+            } catch {
+                print("[PostRow] Cannot favorite post: \(error)")
+                self.error = error
+            }
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
@@ -60,6 +71,25 @@ struct PostRow: View {
             Button("Delete", role: .destructive, action: deletePost)
         }
         .alert("Cannot Delete Post", error: $error)
+    }
+}
+
+private extension PostRow {
+    struct FavoriteButton {
+        let isFavorite: Bool
+        let action: () -> Void
+        
+        var body: some View {
+            Button(action: action) {
+                if isFavorite {
+                    Label("Remove from Favorites", systemImage: "heart.fill")
+                } else {
+                    Label("Add to Favorites", systemImage: "heart")
+                }
+            }
+            .foregroundColor(isFavorite ? .red : .gray)
+            .animation(.default, value: isFavorite)
+        }
     }
 }
 
