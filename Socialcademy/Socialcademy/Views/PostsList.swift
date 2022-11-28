@@ -27,7 +27,8 @@ struct PostsList: View {
                 case let .loaded(posts):
                     List(posts) { post in
                         if searchText.isEmpty {
-                            PostRow(post: post, deleteAction: viewModel.makeDeleteAction(for: post))
+                            PostRow(post: post, deleteAction: viewModel.makeDeleteAction(for: post), favoriteAction: viewModel.makeFavoriteAction(for: post)
+)
                         } else if post.contains(searchText) {
                             HighlightedPostRow(post: HighlightablePost(post: post, search: searchText), deleteAction: viewModel.makeDeleteAction(for: post))
                         }

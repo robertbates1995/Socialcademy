@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PostRow: View {
-    typealias DeleteAction = () async throws -> Void
+    typealias Action = () async throws -> Void
     
     let post: Post
-    let deleteAction: DeleteAction
+    let deleteAction: Action
+    let favoriteAction: Action
     
     @State private var showConfirmationDialog = false
     @State private var error: Error?
@@ -65,7 +66,7 @@ struct PostRow: View {
 struct PostRow_Previews: PreviewProvider {
     static var previews: some View {
         List{
-            PostRow(post: Post.testPost, deleteAction: {})
+            PostRow(post: Post.testPost, deleteAction: {}, favoriteAction: {})
         }
     }
 }

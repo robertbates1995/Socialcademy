@@ -15,6 +15,8 @@ protocol PostsRepositoryProtocol {
     func fetchPosts() async throws -> [Post]
     func create(_ post: Post) async throws
     func delete(_ post: Post) async throws
+    func favorite(_ post: Post) async throws
+    func unfavorite(_ post: Post) async throws
 }
 
 // MARK: - PostsRepositoryStub
@@ -30,6 +32,10 @@ struct PostsRepositoryStub: PostsRepositoryProtocol {
     func create(_ post: Post) async throws {}
     
     func delete(_ post: Post) async throws {}
+    
+    func favorite(_ post: Post) async throws {}
+   
+    func unfavorite(_ post: Post) async throws {}
 }
 #endif
 
