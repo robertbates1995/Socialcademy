@@ -9,11 +9,15 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+// MARK: - PostsRepositoryProtocol
+
 protocol PostsRepositoryProtocol {
     func fetchPosts() async throws -> [Post]
     func create(_ post: Post) async throws
     func delete(_ post: Post) async throws
 }
+
+// MARK: - PostsRepositoryStub
 
 #if DEBUG
 struct PostsRepositoryStub: PostsRepositoryProtocol {
@@ -28,6 +32,8 @@ struct PostsRepositoryStub: PostsRepositoryProtocol {
     func delete(_ post: Post) async throws {}
 }
 #endif
+
+// MARK: - PostsRepository
 
 struct PostsRepository: PostsRepositoryProtocol {
     let postsReference = Firestore.firestore().collection("posts")
@@ -57,7 +63,6 @@ private extension DocumentReference {
         return try await withCheckedThrowingContinuation { continuation in
             try! setData(from: value) { error in
                 if let error = error {
-                    print(" ---here!--- ")
                     continuation.resume(throwing: error)
                     return
                 }

@@ -13,12 +13,17 @@ struct HighlightedPostRow: View {
     let post: HighlightablePost
     let deleteAction: DeleteAction
     
+    @State private var error: Error?
     @State private var showConfirmationDialog = false
 
-    
     private func deletePost() {
         Task {
-            try! await deleteAction()
+            do {
+                try await deleteAction()
+            } catch {
+                print("[PostRow] Cannot delete post: \(error)")
+                self.error = error
+            }
         }
     }
     
@@ -50,6 +55,10 @@ struct HighlightedPostRow: View {
             }
         }
         .padding(.vertical)
+        .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
+            Button("Delete", role: .destructive, action: deletePost)
+        }
+        .alert("Cannot Delete Post", error: $error)
     }
 }
 

@@ -13,6 +13,7 @@ struct Post: Identifiable, Equatable, Codable {
     var authorName: String
     var timestamp = Date()
     var id = UUID()
+    var isFavorite = false
     
     func contains(_ string: String) -> Bool {
         let properties = [title,content,authorName].map { $0.lowercased() }
