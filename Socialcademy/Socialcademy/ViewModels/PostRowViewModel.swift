@@ -22,4 +22,23 @@ class PostRowViewModel: ObservableObject {
         self.deleteAction = deleteAction
         self.favoriteAction = favoriteAction
     }
+    
+    func deletePost() {
+        withErrorHandlingTask(perform: deleteAction)
+    }
+    
+    func favoritePost() {
+        withErrorHandlingTask(perform: favoriteAction)
+    }
+    
+    private func withErrorHandlingTask(perform action: @escaping Action) {
+        Task {
+            do {
+                try await action()
+            } catch {
+                print("[PostRowViewModel] Error: \(error)")
+                self.error = error
+            }
+        }
+    }
 }
