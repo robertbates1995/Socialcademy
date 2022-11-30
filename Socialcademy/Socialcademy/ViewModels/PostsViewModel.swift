@@ -7,13 +7,20 @@
 
 import Foundation
 
+enum Filter {
+    case all, favorites
+}
+
 @MainActor
 class PostsViewModel: ObservableObject {
     @Published var posts: Loadable<[Post]> = .loading
     
     private let postsRepository: PostsRepositoryProtocol
     
-    init(postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+    private let filter: Filter
+    
+    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+        self.filter = filter
         self.postsRepository = postsRepository
     }
     
