@@ -7,12 +7,14 @@
 
 import Foundation
 
-enum Filter {
-    case all, favorites
-}
+
 
 @MainActor
 class PostsViewModel: ObservableObject {
+    enum Filter {
+        case all, favorites
+    }
+    
     @Published var posts: Loadable<[Post]> = .loading
     
     private let postsRepository: PostsRepositoryProtocol
@@ -27,7 +29,7 @@ class PostsViewModel: ObservableObject {
     func fetchPosts() {
         Task {
             do {
-                posts = .loaded(try await postsRepository.fetchAllPosts())
+                posts = .loaded(try await postsRepository.fetchPosts(matching: filter))
             } catch {
                 print("[PostsViewModel] cannot find fetch posts: \(error)")
                 posts = .error(error)
@@ -65,5 +67,16 @@ class PostsViewModel: ObservableObject {
                 self?.posts.value?[i].isFavorite = newValue
             }
         )
+    }
+}
+
+private extension PostsRepositoryProtocol {
+    func fetchPosts(matching filter: PostsViewModel.Filter) async throws -> [Post] {
+        switch filter {
+        case .all:
+            return try await fetchAllPosts()
+        case .favorites:
+            return try await fetchFavoritePosts()
+        }
     }
 }
