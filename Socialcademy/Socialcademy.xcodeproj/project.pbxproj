@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7A2E137F293579FD0048628D /* PostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2E137E293579FD0048628D /* PostRowViewModel.swift */; };
+		7A2E1381293810700048628D /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2E1380293810700048628D /* MainTabView.swift */; };
 		7A51EE3429131DF90004B16A /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3329131DF90004B16A /* PostRow.swift */; };
 		7A51EE3629132CB30004B16A /* HighlightedPostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE3529132CB30004B16A /* HighlightedPostRow.swift */; };
 		7A51EE392913338A0004B16A /* HighlightablePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51EE382913338A0004B16A /* HighlightablePost.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		7A2E137E293579FD0048628D /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
+		7A2E1380293810700048628D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		7A51EE3329131DF90004B16A /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
 		7A51EE3529132CB30004B16A /* HighlightedPostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedPostRow.swift; sourceTree = "<group>"; };
 		7A51EE382913338A0004B16A /* HighlightablePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightablePost.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				7A51EE3329131DF90004B16A /* PostRow.swift */,
 				7A51EE3529132CB30004B16A /* HighlightedPostRow.swift */,
 				7A51EE3A2919A4A70004B16A /* NewPostForm.swift */,
+				7A2E1380293810700048628D /* MainTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				7A51EE40291DB3E00004B16A /* PostsRepository.swift in Sources */,
 				7A2E137F293579FD0048628D /* PostRowViewModel.swift in Sources */,
 				7ADF8E9629131AAB002BDAE7 /* PostsList.swift in Sources */,
+				7A2E1381293810700048628D /* MainTabView.swift in Sources */,
 				7A51EE3B2919A4A70004B16A /* NewPostForm.swift in Sources */,
 				7A51EE59292806BC0004B16A /* Loadable.swift in Sources */,
 			);
