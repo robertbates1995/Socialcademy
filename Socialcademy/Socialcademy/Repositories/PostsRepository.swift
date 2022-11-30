@@ -45,18 +45,16 @@ struct PostsRepository: PostsRepositoryProtocol {
     let postsReference = Firestore.firestore().collection("posts_V1")
     
     func fetchAllPosts() async throws -> [Post] {
-        let snapshot = try await postsReference
-            .order(by: "timestamp", descending: true)
-            .getDocuments()
-        return snapshot.documents.compactMap { document in
-            try! document.data(as: Post.self)
-        }
+        return try await fetchPosts(from: postsReference)
     }
     
     func fetchFavoritePosts() async throws -> [Post] {
-        let snapshot = try await postsReference
+        return try await fetchPosts(from: postsReference.whereField("isFavorite", isEqualTo: true))
+    }
+    
+    private func fetchPosts(from query: Query) async throws -> [Post] {
+        let snapshot = try await query
             .order(by: "timestamp", descending: true)
-            .whereField("isFavorite", isEqualTo: true)
             .getDocuments()
         return snapshot.documents.compactMap { document in
             try! document.data(as: Post.self)
