@@ -42,7 +42,7 @@ struct PostsRepositoryStub: PostsRepositoryProtocol {
 #endif
 
 struct PostsRepository: PostsRepositoryProtocol {
-    let postsReference = Firestore.firestore().collection("posts_V1")
+    let postsReference = Firestore.firestore().collection("posts_V2")
     
     func fetchAllPosts() async throws -> [Post] {
         return try await fetchPosts(from: postsReference)
