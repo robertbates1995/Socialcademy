@@ -21,3 +21,11 @@ class AuthService: ObservableObject {
         }
     }
 }
+
+private extension FirebaseAuth.User {
+    func updateProfile<T>(_ keyPath: WritableKeyPath<UserProfileChangeRequest, T>, to newValue: T) async throws {
+        var profileChangeRequest = createProfileChangeRequest()
+        profileChangeRequest[keyPath: keyPath] = newValue
+        try await profileChangeRequest.commitChanges()
+    }
+}
