@@ -20,6 +20,11 @@ class AuthService: ObservableObject {
             self?.isAuthenticated = user != nil
         }
     }
+    
+    func createAccount(name: String, email: String, password: String) async throws {
+        let result = try await auth.createUser(withEmail: email, password: password)
+        try await result.user.updateProfile(\.displayName, to: name)
+    }
 }
 
 private extension FirebaseAuth.User {
