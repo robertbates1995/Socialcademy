@@ -19,7 +19,7 @@ class FormViewModel<Value>: ObservableObject {
         get { value[keyPath: keyPath] }
         set { value[keyPath: keyPath] = newValue }
     }
- 
+    
     private let action: Action
  
     init(initialValue: Value, action: @escaping Action) {
@@ -27,14 +27,18 @@ class FormViewModel<Value>: ObservableObject {
         self.action = action
     }
  
-    func submit() {
+    private func handleSubmit() async {
+        do {
+            try await action(value)
+        } catch {
+            print("[FormViewModel] Cannot submit: \(error)")
+            self.error = error
+        }
+    }
+    
+    nonisolated func submit() {
         Task {
-            do {
-                try await action(value)
-            } catch {
-                print("[FormViewModel] Cannot submit: \(error)")
-                self.error = error
-            }
+            await handleSubmit()
         }
     }
 }
