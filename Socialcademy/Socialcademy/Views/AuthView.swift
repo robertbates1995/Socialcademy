@@ -30,11 +30,17 @@ private extension AuthView {
         var body: some View {
             Form {
                 TextField("Name", text: $viewModel.name)
+                    .textContentType(.name)
+                    .textInputAutocapitalization(.words)
                 TextField("Email", text: $viewModel.email)
+                    .textContentType(.emailAddress)
+                    .textInputAutocapitalization(.never)
                 SecureField("Password", text: $viewModel.password)
+                    .textContentType(.newPassword)
                 Button("Create Account", action: viewModel.submit)
             }
             .navigationTitle("Create Account")
+            .onSubmit(viewModel.submit)
         }
     }
 }
@@ -47,11 +53,15 @@ private extension AuthView {
         var body: some View {
             Form {
                 TextField("Email", text: $viewModel.email)
+                    .textContentType(.emailAddress)
+                    .textInputAutocapitalization(.never)
                 SecureField("Password", text: $viewModel.password)
+                    .textContentType(.password)
                 Button("Create Account", action: viewModel.submit)
                 footer()
             }
             .navigationTitle("Sign In")
+            .onSubmit(viewModel.submit)
         }
     }
 }
