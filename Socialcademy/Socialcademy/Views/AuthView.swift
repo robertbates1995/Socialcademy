@@ -37,6 +37,7 @@ private extension AuthView {
                     .textInputAutocapitalization(.never)
                 SecureField("Password", text: $viewModel.password)
                     .textContentType(.newPassword)
+            } footer: {
                 Button("Create Account", action: viewModel.submit)
             }
             .navigationTitle("Create Account")
@@ -74,6 +75,27 @@ private extension AuthView {
             }
             .navigationBarHidden(true)
             .onSubmit(viewModel.submit)
+            .padding()
+        }
+    }
+}
+
+private extension AuthView {
+    struct Form<Fields: View, Footer: View>: View {
+        @ViewBuilder let fields: () -> Fields
+        @ViewBuilder let footer: () -> Footer
+        
+        var body: some View {
+            VStack {
+                Text("Socialcademy")
+                    .font(.title.bold())
+                fields()
+                    .padding()
+                    .background(Color.secondary.opacity(0.15))
+                    .cornerRadius(10)
+                footer()
+            }
+            .navigationBarHidden(true)
             .padding()
         }
     }
