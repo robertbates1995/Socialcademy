@@ -51,16 +51,15 @@ private extension AuthView {
         @ViewBuilder let footer: () -> Footer
      
         var body: some View {
-            Form {
+            VStack {
                 TextField("Email", text: $viewModel.email)
                     .textContentType(.emailAddress)
-                    .textInputAutocapitalization(.never)
                 SecureField("Password", text: $viewModel.password)
                     .textContentType(.password)
-                Button("Create Account", action: viewModel.submit)
+                Button("Sign In", action: viewModel.submit)
                 footer()
             }
-            .navigationTitle("Sign In")
+            .navigationBarHidden(true)
             .onSubmit(viewModel.submit)
         }
     }
