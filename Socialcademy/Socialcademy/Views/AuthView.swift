@@ -52,10 +52,15 @@ private extension AuthView {
      
         var body: some View {
             VStack {
-                TextField("Email", text: $viewModel.email)
-                    .textContentType(.emailAddress)
-                SecureField("Password", text: $viewModel.password)
-                    .textContentType(.password)
+                Group {
+                    TextField("Email", text: $viewModel.email)
+                        .textContentType(.emailAddress)
+                    SecureField("Password", text: $viewModel.password)
+                        .textContentType(.password)
+                }
+                .padding()
+                .background(Color.secondary.opacity(0.15))
+                .cornerRadius(10)
                 Button("Sign In", action: viewModel.submit)
                 footer()
             }
