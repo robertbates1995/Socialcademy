@@ -52,6 +52,8 @@ private extension AuthView {
      
         var body: some View {
             VStack {
+                Text("Socialcademy")
+                    .font(.title.bold())
                 Group {
                     TextField("Email", text: $viewModel.email)
                         .textContentType(.emailAddress)
@@ -62,10 +64,17 @@ private extension AuthView {
                 .background(Color.secondary.opacity(0.15))
                 .cornerRadius(10)
                 Button("Sign In", action: viewModel.submit)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .background(Color.accentColor)
+                    .cornerRadius(10)
                 footer()
+                    .padding()
             }
             .navigationBarHidden(true)
             .onSubmit(viewModel.submit)
+            .padding()
         }
     }
 }
