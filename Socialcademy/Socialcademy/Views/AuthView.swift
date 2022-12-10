@@ -26,7 +26,8 @@ struct AuthView: View {
 private extension AuthView {
     struct CreateAccountForm: View {
         @StateObject var viewModel: AuthViewModel.CreateAccountViewModel
-     
+        @Environment(\.dismiss) private var dismiss
+        
         var body: some View {
             Form {
                 TextField("Name", text: $viewModel.name)
@@ -39,6 +40,9 @@ private extension AuthView {
                     .textContentType(.newPassword)
             } footer: {
                 Button("Create Account", action: viewModel.submit)
+                    .buttonStyle(.primary)
+                Button("Sign In", action: dismiss.callAsFunction)
+                    .padding()
             }
             .navigationTitle("Create Account")
             .onSubmit(viewModel.submit)
@@ -65,11 +69,7 @@ private extension AuthView {
                 .background(Color.secondary.opacity(0.15))
                 .cornerRadius(10)
                 Button("Sign In", action: viewModel.submit)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .background(Color.accentColor)
-                    .cornerRadius(10)
+                    .buttonStyle(.primary)
                 footer()
                     .padding()
             }
