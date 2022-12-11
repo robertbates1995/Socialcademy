@@ -16,6 +16,7 @@ protocol PostsRepositoryProtocol {
     func delete(_ post: Post) async throws
     func favorite(_ post: Post) async throws
     func unfavorite(_ post: Post) async throws
+    var user: User { get }
 }
 
 #if DEBUG
@@ -38,11 +39,15 @@ struct PostsRepositoryStub: PostsRepositoryProtocol {
    
     func unfavorite(_ post: Post) async throws {}
     
+    var user = User.testUser
+    
 }
 #endif
 
 struct PostsRepository: PostsRepositoryProtocol {
     let postsReference = Firestore.firestore().collection("posts_V3")
+    
+    let user: User
     
     func fetchAllPosts() async throws -> [Post] {
         return try await fetchPosts(from: postsReference)
