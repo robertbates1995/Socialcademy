@@ -13,7 +13,7 @@ struct NewPostForm: View {
     @State private var post = Post(
         title: "",
         content: "",
-        authorName: ""
+        author: User(id: "", name: "")
     )
     @Environment(\.dismiss) private var dismiss
     
@@ -22,7 +22,7 @@ struct NewPostForm: View {
             Form {
                 Section {
                     TextField("Title", text: $post.title)
-                    TextField("Author Name", text: $post.authorName)
+                    TextField("Author Name", text: $post.author.name)
                 }
                 Section("Content") {
                     TextEditor(text: $post.content)

@@ -21,7 +21,7 @@ struct HighlightablePost: Identifiable {
     
     var title: AttributedString { highlightString(post.title) }
     var content: AttributedString { highlightString(post.content) }
-    var authorName: AttributedString { highlightString(post.authorName) }
+    var authorName: AttributedString { highlightString(post.author.name) }
     var timestamp = Date()
     var id = UUID()
 }
