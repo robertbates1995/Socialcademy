@@ -11,7 +11,7 @@ struct AuthView: View {
     @StateObject var viewModel = AuthViewModel()
     
     var body: some View {
-        if viewModel.isAuthenticated {
+        if viewModel.user != nil {
             MainTabView()
         } else {
             NavigationView {
