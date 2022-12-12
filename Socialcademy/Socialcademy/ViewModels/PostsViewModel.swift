@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 @MainActor
 class PostsViewModel: ObservableObject {
     enum Filter {
@@ -21,7 +19,7 @@ class PostsViewModel: ObservableObject {
     
     private let filter: Filter
     
-    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol) {
         self.filter = filter
         self.postsRepository = postsRepository
     }

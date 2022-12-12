@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct PostsList: View {
-    @StateObject var viewModel = PostsViewModel()
-    @State private var searchText = ""
-    @State private var showNewPostForm = false
+    @StateObject var viewModel: PostsViewModel
     
     var body: some View {
         NavigationView {

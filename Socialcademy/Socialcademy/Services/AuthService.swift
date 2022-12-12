@@ -10,7 +10,6 @@ import FirebaseAuth
 
 @MainActor
 class AuthService: ObservableObject {
-    @Published var isAuthenticated = false
     @Published var user: User?
     
     private let auth = Auth.auth()
@@ -18,7 +17,7 @@ class AuthService: ObservableObject {
     
     init() {
         listener = auth.addStateDidChangeListener { [weak self] _, user in
-            self?.isAuthenticated = user != nil
+            self?.user = user.map(User.init(from:))
         }
     }
     
