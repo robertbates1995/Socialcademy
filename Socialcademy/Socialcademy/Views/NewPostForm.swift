@@ -8,28 +8,26 @@
 import SwiftUI
 
 struct NewPostForm: View {
-    typealias CreateAction = (Post) async throws -> Void
-    let createAction: CreateAction
-    @State private var post = Post(
-        title: "",
-        content: "",
-        author: User(id: "", name: "")
-    )
+    @StateObject var viewModel: FormViewModel<Post>
+    
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Title", text: $post.title)
-                    TextField("Author Name", text: $post.author.name)
+                    TextField("Title", text: $viewModel.title)
                 }
                 Section("Content") {
-                    TextEditor(text: $post.content)
+                    TextEditor(text: $viewModel.content)
                         .multilineTextAlignment(.leading)
                 }
-                Button(action: createPost) {
-                    Text("Create Post")
+                Button(action: viewModel.submit) {
+                    if viewModel.isWorking {
+                        ProgressView()
+                    } else {
+                        Text("Create Post")
+                    }
                 }
                 .font(.headline)
                 .frame(maxWidth: .infinity)
@@ -37,25 +35,16 @@ struct NewPostForm: View {
                 .padding()
                 .listRowBackground(Color.accentColor)
             }
-            .onSubmit(createPost)
+            .onSubmit(viewModel.submit)
             .navigationTitle("New Post")
-        }
-    }
-    
-    private func createPost() {
-        Task {
-            do {
-                try await createAction(post)
-                dismiss()
-            } catch {
-                print("[NewPostForm Cannot create post: \(error)]")
-            }
+            .alert("Cannot Create Post", error: $viewModel.error)
+            .disabled(viewModel.isWorking)
         }
     }
 }
 
 struct NewPostForm_Previews: PreviewProvider {
     static var previews: some View {
-        NewPostForm(createAction: { _ in })
+        NewPostForm(viewModel: FormViewModel(initialValue: Post.testPost, action: { _ in } ))
     }
 }

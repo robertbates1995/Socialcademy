@@ -35,13 +35,6 @@ class PostsViewModel: ObservableObject {
         }
     }
     
-    func makeCreateAction() -> NewPostForm.CreateAction {
-        return { [weak self] post in
-            try await self?.postsRepository.create(post)
-            self?.posts.value?.insert(post, at: 0)
-        }
-    }
-    
     func makeFavoriteAction(for post: Post) -> () async throws -> Void {
         return { [weak self] in
             let newValue = !post.isFavorite
