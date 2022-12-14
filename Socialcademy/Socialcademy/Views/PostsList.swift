@@ -10,6 +10,9 @@ import SwiftUI
 struct PostsList: View {
     @StateObject var viewModel: PostsViewModel
     
+    @State private var searchText = ""
+    @State private var showNewPostForm = false
+    
     var body: some View {
         NavigationView {
             Group {
@@ -44,7 +47,7 @@ struct PostsList: View {
                 }
             }
             .sheet(isPresented: $showNewPostForm) {
-                NewPostForm(createAction: viewModel.makeCreateAction())
+                NewPostForm(viewModel: viewModel.makeNewPostViewModel())
             }
         }
         .onAppear {
