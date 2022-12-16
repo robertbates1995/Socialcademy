@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 @MainActor
 class PostsViewModel: ObservableObject {
     enum Filter {
@@ -21,7 +19,7 @@ class PostsViewModel: ObservableObject {
     
     private let filter: Filter
     
-    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol) {
         self.filter = filter
         self.postsRepository = postsRepository
     }
@@ -34,13 +32,6 @@ class PostsViewModel: ObservableObject {
                 print("[PostsViewModel] cannot find fetch posts: \(error)")
                 posts = .error(error)
             }
-        }
-    }
-    
-    func makeCreateAction() -> NewPostForm.CreateAction {
-        return { [weak self] post in
-            try await self?.postsRepository.create(post)
-            self?.posts.value?.insert(post, at: 0)
         }
     }
     
@@ -65,6 +56,15 @@ class PostsViewModel: ObservableObject {
                 try await newValue ? self?.postsRepository.favorite(post) : self?.postsRepository.unfavorite(post)
                 guard let i = self?.posts.value?.firstIndex(of: post) else { return }
                 self?.posts.value?[i].isFavorite = newValue
+            }
+        )
+    }
+    
+    func makeNewPostViewModel() -> FormViewModel<Post> {
+        return FormViewModel(
+            initialValue: Post(title: "", content: "", author: postsRepository.user), action: { [weak self] post in
+                try await self?.postsRepository.create(post)
+                self?.posts.value?.insert(post, at: 0)
             }
         )
     }
