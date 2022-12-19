@@ -43,7 +43,7 @@ class PostsViewModel: ObservableObject {
             self?.posts.value?[i].isFavorite = newValue
         }
     }
-    
+
     func makePostRowViewModel(for post: Post) -> PostRowViewModel {
         let deleteAction = { [weak self] in
             try await self?.postsRepository.delete(post)
